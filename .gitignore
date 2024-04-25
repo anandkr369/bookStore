@@ -1,0 +1,8 @@
+02P*/
+03Pro*/
+bookStore/.env
+bookStore/node_modules/
+MernServer/.env
+MernServer/node_modules/
+bookStore/package-lock.json
+MernServer/package-lock.json
