@@ -1,6 +1,10 @@
 import React from 'react'
 import { Card } from "flowbite-react";
 import backbook from '../assets/About/bookIcon01.png';
+import teamImg01 from "../assets/About/person1.jpg"
+import teamImg02 from "../assets/About/person2.jpg"
+import teamImg03 from "../assets/About/person3.jpg"
+import teamImg04 from "../assets/About/person4.jpg"
 
 const OurTeam = () => {
     return (
@@ -10,7 +14,7 @@ const OurTeam = () => {
             </div>
             <div className='flex flex-row gap-4'>
                 <Card href="#" className="max-w-sm">
-                    <img className='rounded-full h-36 w-36 object-cover' src="../src/assets/About/person2.jpg" alt="person1" />
+                    <img className='rounded-full h-36 w-36 object-cover' src={teamImg02} alt="person1" />
 
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Rose
@@ -21,7 +25,7 @@ const OurTeam = () => {
                 </Card>
 
                 <Card href="#" className="max-w-sm">
-                    <img className='rounded-full h-36 w-36 object-cover' src="../src/assets/About/person3.jpg" alt="person1" />
+                    <img className='rounded-full h-36 w-36 object-cover' src={teamImg03} alt="person1" />
 
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Robert jane
@@ -32,7 +36,7 @@ const OurTeam = () => {
                 </Card>
 
                 <Card href="#" className="max-w-sm">
-                    <img className='rounded-full h-36 w-36 object-cover' src="../src/assets/About/person4.jpg" alt="person1" />
+                    <img className='rounded-full h-36 w-36 object-cover' src={teamImg04} alt="person1" />
 
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Emily
@@ -43,7 +47,7 @@ const OurTeam = () => {
                 </Card>
 
                 <Card href="#" className="max-w-sm">
-                    <img className='rounded-full h-36 w-36 object-cover' src="../src/assets/About/person1.jpg" alt="person1" />
+                    <img className='rounded-full h-36 w-36 object-cover' src={teamImg01} alt="person1" />
 
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Ameliya
