@@ -55,7 +55,7 @@ const EditBooks = () => {
     };
 
     // Update book data using the id from URL params
-    fetch(`http://localhost:5000/book/${id}`, {
+    fetch(`https://bookstore-bx08.onrender.com/book/${id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json"

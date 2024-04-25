@@ -5,7 +5,7 @@ import BookCards from "../components/BookCards.jsx"
 const FavouriteBooks = () => {
     const [books, setBooks] = useState([])
     useEffect(()=>{
-        fetch("http://localhost:5000/all-books")
+        fetch("https://bookstore-bx08.onrender.com/all-books")
         .then(res=>res.json())
         .then(data =>setBooks(data.slice(0,8)));
     })
