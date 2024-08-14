@@ -1,5 +1,5 @@
 import React from 'react'
-import userImg from 'D:/ReactProject/bookStore/src/assets/About/person2.jpg';
+import userImg from '../assets/About/person2.jpg';
 const User = () => {
     return (
         <div className='flex'>
@@ -13,5 +13,4 @@ const User = () => {
         </div>
     )
 }
-
 export default User

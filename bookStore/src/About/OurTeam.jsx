@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from "flowbite-react";
-import backbook from '../assets/About/bookIcon01.png';
+// import backbook from '../assets/About/bookIcon01.png';
 import teamImg01 from "../assets/About/person1.jpg";
 import teamImg02 from "../assets/About/person2.jpg";
 import teamImg03 from "../assets/About/person3.jpg";
