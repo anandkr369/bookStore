@@ -1,5 +1,5 @@
 import React from 'react';
-import FavBookImg from '../assets/BannerCard/book1.jpg';
+import FavBookImg from '../assets/BannerCard/collections.jpg';
 import {Link} from 'react-router-dom'
 
 const FavBook = () => {
@@ -10,7 +10,7 @@ const FavBook = () => {
       </div>
 
       <div className='md:w-1/2 space-x-6'>
-        <h2 className='text-5xl font-bold my-5 md:w-3/4 leading-snug'>Find your Favourite book <span className='text-blue-700'>Book Here!</span></h2>
+        <h2 className='text-5xl font-bold my-5 md:w-3/4 leading-snug'>Find your Favourite book <span className='text-green-700'>Book Here!</span></h2>
         <p className='mb-10 text-lg md:w-5/6'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nobis dicta animi atque laudantium nisi repellendus perspiciatis id beatae iure!</p>
         {/* states */}
         <div className='flex flex-col sm:flex-row justify-between gap-6 md:w3/4 my-14'>
@@ -31,7 +31,7 @@ const FavBook = () => {
         </div>
 
 
-        <Link to="/shop" className = "mt-8 block" ><button className='bg-blue-700 p-4 text-white font-semibold rounded hover:bg-black transition-all duration-300'>Explore More</button></Link>
+        <Link to="/shop" className = "mt-8 block" ><button className='bg-green-700 p-4 text-white font-semibold rounded hover:bg-black transition-all duration-300'>Explore More</button></Link>
       </div>
     </div>
   );

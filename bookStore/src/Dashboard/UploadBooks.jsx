@@ -42,6 +42,7 @@ const UploadBooks = () => {
     const category = form.category.value;
     const book_description = form.book_description.value;
     const book_pdf_url = form.book_pdf_url.value;
+    const price = form.price.value;
 
     const booksObj = {
       bookTitle,
@@ -49,7 +50,8 @@ const UploadBooks = () => {
       imgURL,
       category,
       book_description,
-      book_pdf_url
+      book_pdf_url,
+      price
     }
 
     console.log(booksObj);
@@ -138,7 +140,7 @@ const UploadBooks = () => {
               <Textarea className='lg:w-96 md:w-64  sm:w-20' id="book_description" type="text" placeholder="Book Description here..." required rows={7} />
             </div>
 
-            {/* book pdf link */}
+            {/* book pdf url */}
             <div>
               <div className='mb-2 block'>
                 <Label htmlFor='book_pdf_url' value='Book PDF URL' />
@@ -148,10 +150,21 @@ const UploadBooks = () => {
               </div>
             </div>
           </div>
+
+
+          {/* price */}
+          <div>
+            <div className='mb-2 block'>
+              <Label htmlFor='price' value='Book Price' />
+            </div>
+            <div>
+              <TextInput className='lg:w-96 md:w-64  sm:w-20' id='price' placeholder='Book Price' required type='number' />
+            </div>
+          </div>
           <Button type="submit" className='mt-5'>Upload Book</Button>
         </form>
       </div>
-      
+
     </>
   )
 }

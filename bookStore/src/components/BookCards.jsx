@@ -49,7 +49,7 @@ const BookCards = ({headline, books}) => {
       <Link to={`/book/${book._id}`} style={{ textDecoration: 'none' }}>
         <div style={{ marginBottom: '10px' }}>
           <img src={book.imgURL} alt="bookImg" />
-          <div className=' absolute top-3 right-3 bg-blue-600 hover:bg-black p-2'>
+          <div className=' absolute top-3 right-3 bg-green-700 hover:bg-black p-2'>
             <FaShoppingCart className='w-4 h-4 text-white' />
           </div>
         </div>

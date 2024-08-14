@@ -20,6 +20,7 @@ const ChatWithAi = () => {
         });
 
         setQuestion("");
+        // console.log(response);
         const generatedAnswer = response.data.candidates[0].content.parts[0].text;
         setAnswer(generatedAnswer);
         setCopied(false); 
@@ -32,7 +33,7 @@ const ChatWithAi = () => {
     }
 
     return (
-        <div className="min-h-96 bg-teal-100 py-4 px-4 lg:px-0">
+        <div className="min-h-96 bg-green-100 py-4 px-4 lg:px-0">
             <div className="max-w-lg mx-auto">
                 <textarea
                     value={question}
@@ -41,7 +42,7 @@ const ChatWithAi = () => {
                     placeholder="Enter your question here..."
                 ></textarea>
                 <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                     onClick={generateAnswer}
                 >
                     Generate Answer
@@ -51,7 +52,7 @@ const ChatWithAi = () => {
                 </div>
 
                 <button
-                    className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                     onClick={copyGeneratedAnswer}
                 >
                     {copied ? 'Copied!' : 'Copy'}

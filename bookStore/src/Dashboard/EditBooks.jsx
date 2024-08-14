@@ -5,22 +5,22 @@ import { useState } from 'react';
 
 const EditBooks = () => {
   const { id } = useParams();
-  const { bookTitle, authorname, imgURL, category, book_description, book_pdf_url } = useLoaderData();
+  const { bookTitle, authorname, imgURL, category, book_description, book_pdf_url, price } = useLoaderData();
 
   const bookCategories = [
     "select",
-    "Friction",
+    "Fiction",
     "Non-Fiction",
-    "Mistery",
+    "Mystery",
     "Science Fiction",
     "Fantasy",
     "Horror",
-    "Bibliography",
+    "Biography",
     "Autobiography",
     "History",
     "Self-help",
     "Memoir",
-    "Bussiness",
+    "Business",
     "Education",
     "Children Books",
     "Travel",
@@ -34,7 +34,6 @@ const EditBooks = () => {
     setSelectedBookCategory(event.target.value);
   };
 
-  // Update books
   const handleUpdate = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -44,6 +43,7 @@ const EditBooks = () => {
     const category = form.category.value;
     const book_description = form.book_description.value;
     const book_pdf_url = form.book_pdf_url.value;
+    const price = form.price.value;
 
     const booksObj = {
       bookTitle,
@@ -51,10 +51,10 @@ const EditBooks = () => {
       imgURL,
       category,
       book_description,
-      book_pdf_url
+      book_pdf_url,
+      price
     };
 
-    // Update book data using the id from URL params
     fetch(`https://bookstore-bx08.onrender.com/book/${id}`, {
       method: "PATCH",
       headers: {
@@ -73,75 +73,85 @@ const EditBooks = () => {
   };
 
   return (
-    <div className='px-4 my-12 '>
-      <h2 className='mb-8 text-3xl font-bold'> Update the Books Data</h2>
+    <div className='flex'>
+      <div className='mb-8'>
+        <div className='relative w-full max-w-xs mx-auto my-36'>
+          <img
+            src={imgURL}
+            alt={bookTitle}
+            className='w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105 rounded-lg shadow-md'
+          />
+        </div>
+        </div>
+    <div className='px-4 my-12'>
+      <h2 className='mb-8 text-3xl font-bold'>Update the Books Data</h2>
 
-      <form className="flex lg:w-[1180px] flex-col flex-wrap gap-4" onSubmit={handleUpdate}>
-        {/* 1st Row */}
-        <div className='flex gap-8'>
-          {/* book title */}
-          <div className='lg:w-1/2'>
-            <div className="mb-2 block">
-              <Label htmlFor="bookTitle" value="Book Title" />
-            </div>
-            <TextInput className='lg:w-96 md:w-64  sm:w-20' id="bookTitle" type="text" placeholder="Book Name" required defaultValue={bookTitle} />
+      <form className="grid grid-cols-1 lg:grid-cols-2 gap-8" onSubmit={handleUpdate}>
+        {/* Book Title */}
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="bookTitle" value="Book Title" />
           </div>
-
-          {/* book author */}
-          <div className='lg:w-1/2'>
-            <div className="mb-2 block">
-              <Label htmlFor="authorname" value="Book Author" />
-            </div>
-            <TextInput className='lg:w-96 md:w-64  sm:w-20' id="authorname" type="text" placeholder="Book Author" required defaultValue={authorname} />
-          </div>
+          <TextInput className='w-full' id="bookTitle" type="text" placeholder="Book Name" required defaultValue={bookTitle} />
         </div>
 
-        {/* 2nd Row */}
-        <div className='flex gap-8'>
-          {/* book image */}
-          <div className='lg:w-1/2'>
-            <div className="mb-2 block">
-              <Label htmlFor="imgURL" value="Book-Image URL" />
-            </div>
-            <TextInput className='lg:w-96 md:w-64  sm:w-20' id="imgURL" type="text" placeholder="Book URL" required defaultValue={imgURL} />
+        {/* Book Author */}
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="authorname" value="Book Author" />
           </div>
-
-          {/* book Categories from array ( in the top of this code) */}
-          <div className='lg:w-1/2'>
-            <div className='mb-2 block'>
-              <Label htmlFor='inputState' value='Book Category' />
-            </div>
-
-            <Select id='inputState' name='category' className='w-full rounded' value={selectedBookCategory} onChange={handleSelectedCategory}>
-              {bookCategories.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </Select>
-          </div>
+          <TextInput className='w-full' id="authorname" type="text" placeholder="Book Author" required defaultValue={authorname} />
         </div>
 
-        {/* 3rd row */}
-        <div className='flex gap-8'>
-          {/* book Description */}
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="book_description" value="Book Description" />
-            </div>
-            <Textarea className='lg:w-96 md:w-64  sm:w-20' id="book_description" type="text" defaultValue={book_description} placeholder="Book Description here..." required rows={7} />
+        {/* Book Image */}
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="imgURL" value="Book-Image URL" />
           </div>
-
-          {/* book pdf link */}
-          <div>
-            <div className='mb-2 block'>
-              <Label htmlFor='book_pdf_url' value='Book PDF URL' />
-            </div>
-            <div>
-              <TextInput className='lg:w-96 md:w-64  sm:w-20' id='book_pdf_url' placeholder='Book URL' required type='text' defaultValue={book_pdf_url} />
-            </div>
-          </div>
+          <TextInput className='w-full' id="imgURL" type="text" placeholder="Book URL" required defaultValue={imgURL} />
         </div>
-        <Button type="submit" className='mt-5'>Update Book</Button>
+
+        {/* Book Category */}
+        <div>
+          <div className='mb-2 block'>
+            <Label htmlFor='inputState' value='Book Category' />
+          </div>
+          <Select id='inputState' name='category' className='w-full' value={selectedBookCategory} onChange={handleSelectedCategory}>
+            {bookCategories.map(option => (
+              <option key={option} value={option}>{option}</option>
+            ))}
+          </Select>
+        </div>
+
+        {/* Book Description */}
+        <div className='col-span-1 lg:col-span-2'>
+          <div className="mb-2 block">
+            <Label htmlFor="book_description" value="Book Description" />
+          </div>
+          <Textarea className='w-full' id="book_description" type="text" defaultValue={book_description} placeholder="Book Description here..." required rows={7} />
+        </div>
+
+        {/* Book PDF URL */}
+        <div>
+          <div className='mb-2 block'>
+            <Label htmlFor='book_pdf_url' value='Book PDF URL' />
+          </div>
+          <TextInput className='w-full' id='book_pdf_url' placeholder='Book URL' required type='text' defaultValue={book_pdf_url} />
+        </div>
+
+        {/* Book Price */}
+        <div>
+          <div className='mb-2 block'>
+            <Label htmlFor='price' value='Book Price' />
+          </div>
+          <TextInput className='w-full' id='price' placeholder='Book Price' required type='text' defaultValue={price} />
+        </div>
+
+        <div className='col-span-1 lg:col-span-2 flex justify-end'>
+          <Button type="submit" className='mt-5'>Update Book</Button>
+        </div>
       </form>
+    </div>
     </div>
   );
 };

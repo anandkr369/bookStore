@@ -17,77 +17,99 @@ import EditBooks from "../Dashboard/EditBooks.jsx";
 import MainBlog from "../Blog/MainBlog.jsx";
 import ChatWithAi from "../AiChat/ChatWithAi.jsx";
 import AiApp from "../AiChat/AiApp.jsx";
-// import SignUp from "../components/SignUp.jsx";
+import SignUp from "../components/SignUp.jsx";
+import Login from "../components/Login.jsx";
+import PriveRoute from "../PrivateRoute/PriveRoute.jsx";
+import Logout from "../components/Logout.jsx";
+import User from "../Dashboard/User.jsx";
+import Razorpay from "razorpay";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>,
+        element: <App />,
         children: [
             {
                 path: "/",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/shop",
-                element: <Shop/>
+                element: <Shop />
             },
             {
                 path: "/about",
-                element: <About/>
+                element: <About />
             },
             {
                 path: "/sellyourbook",
-                element: <SellYourBook/>
+                element: <SellYourBook />
             },
             {
                 path: "/blog",
-                element: <MainBlog/>
+                element: <MainBlog />
             },
             {
-                path:"/book/:id",
-                element: <SingleBook/>,
-                loader: ({params}) => fetch(`https://bookstore-bx08.onrender.com/book/${params.id}`)
+                path: "/book/:id",
+                element: <SingleBook />,
+                loader: ({ params }) => fetch(`https://bookstore-bx08.onrender.com/book/${params.id}`)
             },
+            // {
+            //     path: "/chatwithai",
+            //     element: <ChatWithAi />
+            // },
+            // {
+            //     path: "/chatwithaidemo",
+            //     element: <AiApp />
+            // },
             {
-                path:"/chatwithai",
-                element: <ChatWithAi/>
-            },
-            {
-                path:"/chatwithaidemo",
-                element: <AiApp/>
+                path: '/singlebook',
+                element: <SingleBook/>
             }
 
         ]
     },
     {
-        path:"/admin/dashboard",    //for private routing
-        element: <DashboardLayout/>,
+        path: "/admin/dashboard",    //for private routing
+        element: <DashboardLayout />,
         children: [
             {
-                path:"/admin/dashboard",
-                element: <Dashboard/>  
+                path: "/admin/dashboard",
+                element: <Dashboard />
+                         
             },
             {
                 path: "/admin/dashboard/upload",
-                element: <UploadBooks/>
+                element: <UploadBooks />
             },
             {
                 path: "/admin/dashboard/manage",
-                element: <ManageBooks/>
+                element: <ManageBooks />
             },
             {
                 path: "/admin/dashboard/edit-books/:id",
-                element: <EditBooks/>,
-                loader: ({params}) => fetch(`https://bookstore-bx08.onrender.com/book/${params.id}`) // will give book id to edit a particular book
+                element: <EditBooks />,
+                loader: ({ params }) => fetch(`https://bookstore-bx08.onrender.com/book/${params.id}`) // will give book id to edit a particular book
+            },{
+                path: "/admin/dashboard/user",
+                element: <User/>
             }
         ]
     }
-    // ,
-    // {
-    //     path:"sign-up",
-    //     element: <SignUp/>
-    // }
+    ,
+    {
+        path: "sign-up",
+        element: <SignUp />
+    },
+    {
+        path: "login",
+        element: <Login />
+    },
+    {
+        path: "logout",
+        element: <Logout/>
+    }
 ]);
 
 export default router
+//D:\ReactProject\bookStore\src\router\router.jsx

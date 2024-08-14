@@ -5,10 +5,9 @@ import { HiArrowSmRight, HiChartPie, HiInbox, HiOutlineCloudUpload, HiShoppingBa
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Dashboard from './Dashboard';
 import userImg from '../assets/BannerCard/book1.jpg';
-
 const SideBar = () => {
   return (
-    <nav className="mt-36 bg-teal-100">
+    <div className="mt-36 bg-green-100">
       <Sidebar aria-label="Sidebar with content separator example">
         <Sidebar.Logo as={Link} to="/admin/dashboard" img={userImg} imgAlt="User Profile Picture"> {/* Use 'as' prop to make Sidebar.Logo a Link */}
           Admin
@@ -24,33 +23,33 @@ const SideBar = () => {
             <Sidebar.Item as={Link} to="/admin/dashboard/manage" icon={HiInbox}>
               Manage Books
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiUser}>
+            {/* <Sidebar.Item as={Link} to="/admin/dashboard/user" icon={HiUser}>
               Users
-            </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiShoppingBag}>
+            </Sidebar.Item> */}
+            <Sidebar.Item as={Link} to="/shop" icon={HiShoppingBag}>
               Products
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiArrowSmRight}>
-              Sign In
+            <Sidebar.Item as={Link} to= "/logout"  icon={HiArrowSmRight}>
+              Log-Out
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiTable}>
-              Sign Up
+            <Sidebar.Item as={Link} to="/sign-up" icon={HiTable}>
+              Sign-Up
             </Sidebar.Item>
           </Sidebar.ItemGroup>
           <Sidebar.ItemGroup>
             <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiChartPie}>
               Upgrade to Pro
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/documentation" icon={HiViewBoards}>
+            <Sidebar.Item as={Link} to="https://google.com" icon={HiViewBoards}>
               Documentation
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/help" icon={BiBuoy}>
+            <Sidebar.Item as={Link} to="/blog" icon={BiBuoy}>
               Help
             </Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
-    </nav>
+    </div>
   );
 };
 
