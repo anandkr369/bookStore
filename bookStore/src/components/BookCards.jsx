@@ -56,7 +56,7 @@ const BookCards = ({headline, books}) => {
         <div>
           <h4 className='text-black font-bold' style={{ marginBottom: '5px' }}>{book.bookTitle}</h4>
           <p className='text-black' style={{ marginBottom: '5px' }}>{book.authorname}</p>
-          <p className='text-black' style={{ fontSize: '0.8em' }}>$10.0</p>
+          <p className='text-black' style={{ fontSize: '0.8em' }}>Rs.{book.price}</p>
         </div>
       </Link>
     </SwiperSlide>
