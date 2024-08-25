@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             // console.log(currentUser);
-            setUser(currentUser) //make hard coded value to breach auth
+            setUser("currentUser") //make hard coded value to breach auth
             setLoading(false)
         })
         return () => {
